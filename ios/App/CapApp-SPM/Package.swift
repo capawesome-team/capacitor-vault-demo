@@ -16,7 +16,7 @@ let package = Package(
         .package(name: "CapacitorHaptics", path: "../../../node_modules/@capacitor/haptics"),
         .package(name: "CapacitorKeyboard", path: "../../../node_modules/@capacitor/keyboard"),
         .package(name: "CapacitorStatusBar", path: "../../../node_modules/@capacitor/status-bar"),
-        .package(name: "CapawesomeTeamCapacitorVault", path: "../../../../Documents/GitHub/capawesome-team/capacitor-plugins-sponsorware/packages/vault")
+        .package(name: "CapawesomeTeamCapacitorVault", path: "../../../node_modules/@capawesome-team/capacitor-vault")
     ],
     targets: [
         .target(

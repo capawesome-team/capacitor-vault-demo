@@ -28,7 +28,7 @@
     "@capacitor/ios": "^8.3.4",
     "@capacitor/keyboard": "8.0.3",
     "@capacitor/status-bar": "8.0.2",
-    "@capawesome-team/capacitor-vault": "/Users/robingenz/Documents/GitHub/capawesome-team/capacitor-plugins-sponsorware/packages/vault",
+    "@capawesome-team/capacitor-vault": "0.0.1-dev.88c4316d.1779950736",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",

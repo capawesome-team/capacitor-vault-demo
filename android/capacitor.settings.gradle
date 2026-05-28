@@ -15,4 +15,4 @@ include ':capacitor-status-bar'
 project(':capacitor-status-bar').projectDir = new File('../node_modules/@capacitor/status-bar/android')
 
 include ':capawesome-team-capacitor-vault'
-project(':capawesome-team-capacitor-vault').projectDir = new File('../../Documents/GitHub/capawesome-team/capacitor-plugins-sponsorware/packages/vault/android')
+project(':capawesome-team-capacitor-vault').projectDir = new File('../node_modules/@capawesome-team/capacitor-vault/android')
