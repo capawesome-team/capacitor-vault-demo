@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>My Passwords</ion-title>
-    @if (!isLocked()) {
+    @if (!activeState().isLocked) {
       <ion-buttons slot="end">
         <ion-button (click)="lock()" aria-label="Lock vault">
           <ion-icon slot="icon-only" name="lock-closed-outline"></ion-icon>
@@ -9,28 +9,40 @@
       </ion-buttons>
     }
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment
+      [value]="activeVaultId()"
+      (ionChange)="setActiveVault($any($event).detail.value)"
+    >
+      @for (vault of vaults; track vault.id) {
+        <ion-segment-button [value]="vault.id">
+          <ion-label>{{ vault.label }}</ion-label>
+        </ion-segment-button>
+      }
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  @if (isLocked()) {
+  @if (activeState().isLocked) {
     <div class="locked-view">
       <ion-icon name="lock-closed-outline" class="locked-icon"></ion-icon>
-      <h2>Your passwords are locked</h2>
+      <h2>Your {{ activeVault().label.toLowerCase() }} passwords are locked</h2>
       <p>Unlock with biometrics to view your saved credentials.</p>
       <ion-button expand="block" (click)="unlock()">
         <ion-icon slot="start" name="lock-open-outline"></ion-icon>
-        Unlock Vault
+        Unlock {{ activeVault().label }} Vault
       </ion-button>
     </div>
   } @else {
-    @if (entries().length === 0) {
+    @if (activeState().entries.length === 0) {
       <div class="empty-view">
-        <p>No passwords saved yet.</p>
+        <p>No passwords saved in your {{ activeVault().label.toLowerCase() }} vault yet.</p>
         <p>Tap the + button below to add your first one.</p>
       </div>
     } @else {
       <ion-list>
-        @for (entry of entries(); track entry.site) {
+        @for (entry of activeState().entries; track entry.site) {
           <ion-item-sliding>
             <ion-item button (click)="revealEntry(entry)">
               <ion-label>
