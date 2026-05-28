@@ -1,0 +1,7 @@
+{
+  "name": "Capacitor Vault Demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
