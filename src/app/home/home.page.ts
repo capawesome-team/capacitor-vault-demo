@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, computed, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, computed, signal, ChangeDetectionStrategy } from '@angular/core';
 import {
   Vault,
   VaultType,
@@ -27,7 +27,7 @@ import {
   IonSegmentButton,
   IonTitle,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import type { PluginListenerHandle } from '@capacitor/core';
 import { addIcons } from 'ionicons';
 import {
@@ -62,6 +62,7 @@ const VAULTS: VaultDescriptor[] = [
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     IonButton,
     IonButtons,
